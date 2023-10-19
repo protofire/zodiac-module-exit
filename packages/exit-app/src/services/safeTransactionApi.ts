@@ -2,7 +2,7 @@ import axios from 'axios'
 import { SafeAssets, TokenAsset } from '../store/main/models'
 
 export class SafeTransactionApi {
-  private baseUrl = 'https://safe-client.safe.global'
+  private baseUrl = 'https://gateway.safe.linea.build'
   private chainId: number
   private safe: string
 

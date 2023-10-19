@@ -4,6 +4,7 @@ const REACT_APP_ETHERSCAN_KEY = process.env.REACT_APP_ETHERSCAN_KEY
 const REACT_APP_OPTIMISTIC_ETHERSCAN_KEY = process.env.REACT_APP_OPTIMISTIC_ETHERSCAN_KEY
 const REACT_APP_ARBISCAN_KEY = process.env.REACT_APP_ARBISCAN_KEY
 const REACT_APP_SNOWTRACE_KEY = process.env.REACT_APP_SNOWTRACE_KEY
+const REACT_APP_LINEASCAN_KEY = process.env.REACT_APP_LINEASCAN_KEY
 
 interface ExplorerData {
   networkExplorerName: string
@@ -86,6 +87,24 @@ export const EXPLORERS_CONFIG: Record<NETWORK, ExplorerData> = {
     safeUrl: 'https://app.safe.global/home?safe=avax:',
     verifyContractUrl: 'https://snowtrace.io/verifyContract',
     explorerApiKey: REACT_APP_SNOWTRACE_KEY,
+  },
+  [NETWORK.LINEA_GOERLI]: {
+    networkExplorerName: "Goerli Lineascan",
+    networkExplorerUrl: "https://goerli.lineascan.build/",
+    networkExplorerApiUrl: "https://api-testnet.lineascan.build/api",
+    safeTransactionApi: "https://transaction-testnet.safe.linea.build/",
+    safeUrl: "https://safe.linea.build/home?safe=linea-gor:",
+    verifyContractUrl: "https://goerli.lineascan.build/verifyContract",
+    explorerApiKey: REACT_APP_LINEASCAN_KEY,
+  },
+  [NETWORK.LINEA]: {
+    networkExplorerName: "Lineascan",
+    networkExplorerUrl: "https://lineascan.build/",
+    networkExplorerApiUrl: "https://api.lineascan.build/api",
+    safeTransactionApi: "https://transaction.safe.linea.build/",
+    safeUrl: "https://safe.linea.build/home?safe=linea:",
+    verifyContractUrl: "https://lineascan.build/verifyContract",
+    explorerApiKey: REACT_APP_LINEASCAN_KEY,
   },
 }
 
