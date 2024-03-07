@@ -87,6 +87,30 @@ export const EXPLORERS_CONFIG: Record<NETWORK, ExplorerData> = {
     verifyContractUrl: 'https://snowtrace.io/verifyContract',
     explorerApiKey: REACT_APP_SNOWTRACE_KEY,
   },
+  [NETWORK.MOONBEAM]: {
+    networkExplorerName: 'Moonbeam',
+    networkExplorerUrl: 'https://moonbeam-explorer.netlify.app/',
+    networkExplorerApiUrl: 'https://rpc.testnet.moonbeam.network',
+    safeTransactionApi: 'https://safe-transaction-moonbeam.safe.global/',
+    safeUrl: 'https://app.safe.global/home?safe=moon:',
+    verifyContractUrl: 'https://moonbeam-explorer.netlify.app/verifyContract',
+  },
+  [NETWORK.MOONRIVER]: {
+    networkExplorerName: 'Moonriver',
+    networkExplorerUrl: 'https://moonriver-explorer.netlify.app/',
+    networkExplorerApiUrl: 'https://rpc.testnet.moonriver.moonbeam.network',
+    safeTransactionApi: 'https://safe-transaction-moonriver.safe.global/',
+    safeUrl: 'https://app.safe.global/home?safe=mriver:',
+    verifyContractUrl: 'https://moonriver-explorer.netlify.app/verifyContract',
+  },
+  [NETWORK.MOONBASE]: {
+    networkExplorerName: 'Moonbase',
+    networkExplorerUrl: 'https://moonbase-explorer.netlify.app/',
+    networkExplorerApiUrl: 'https://rpc.testnet.moonbase.moonbeam.network',
+    safeTransactionApi: 'https://safe-transaction-moonbase.safe.global/',
+    safeUrl: 'https://app.safe.global/home?safe=mbase:',
+    verifyContractUrl: 'https://moonbase-explorer.netlify.app/verifyContract',
+  },
 }
 
 export const getNetworkExplorerInfo = (chainId: number) => {

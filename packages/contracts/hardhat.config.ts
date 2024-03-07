@@ -1,18 +1,18 @@
-import "@nomiclabs/hardhat-etherscan";
-import "@nomiclabs/hardhat-waffle";
-import "solidity-coverage";
-import "hardhat-deploy";
-import dotenv from "dotenv";
-import type { HttpNetworkUserConfig } from "hardhat/types";
+import '@nomiclabs/hardhat-etherscan';
+import '@nomiclabs/hardhat-waffle';
+import 'solidity-coverage';
+import 'hardhat-deploy';
+import dotenv from 'dotenv';
+import type { HttpNetworkUserConfig } from 'hardhat/types';
 
 // Load environment variables.
 dotenv.config();
 const { INFURA_KEY, MNEMONIC, ETHERSCAN_API_KEY, PK } = process.env;
 
-import "./src/tasks/setup";
+import './src/tasks/setup';
 
 const DEFAULT_MNEMONIC =
-  "candy maple cake sugar pudding cream honey rich smooth crumble sweet treat";
+  'candy maple cake sugar pudding cream honey rich smooth crumble sweet treat';
 
 const sharedNetworkConfig: HttpNetworkUserConfig = {};
 if (PK) {
@@ -25,13 +25,13 @@ if (PK) {
 
 export default {
   paths: {
-    artifacts: "build/artifacts",
-    cache: "build/cache",
-    deploy: "src/deploy",
-    sources: "contracts",
+    artifacts: 'build/artifacts',
+    cache: 'build/cache',
+    deploy: 'src/deploy',
+    sources: 'contracts',
   },
   solidity: {
-    version: "0.8.6",
+    version: '0.8.6',
   },
   networks: {
     mainnet: {
@@ -44,11 +44,23 @@ export default {
     },
     xdai: {
       ...sharedNetworkConfig,
-      url: "https://xdai.poanetwork.dev",
+      url: 'https://xdai.poanetwork.dev',
     },
     matic: {
       ...sharedNetworkConfig,
-      url: "https://rpc-mainnet.maticvigil.com",
+      url: 'https://rpc-mainnet.maticvigil.com',
+    },
+    moonbase: {
+      ...sharedNetworkConfig,
+      url: 'https://moonbase.unitedbloc.com',
+    },
+    moonriver: {
+      ...sharedNetworkConfig,
+      url: 'https://moonriver.unitedbloc.com:2000',
+    },
+    moonbeam: {
+      ...sharedNetworkConfig,
+      url: 'https://rpc.api.moonbeam.network',
     },
   },
   namedAccounts: {

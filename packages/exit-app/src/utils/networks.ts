@@ -7,6 +7,9 @@ export enum NETWORK {
   POLYGON = 137,
   ARBITRUMONE = 42161,
   AVALANCHE = 43114,
+  MOONBEAM = 1284,
+  MOONRIVER = 1285,
+  MOONBASE = 1287,
 }
 
 export interface Coin {
@@ -20,6 +23,9 @@ export const NATIVE_ASSET: Record<string, Coin> = {
   MATIC: { symbol: 'MATIC', decimals: 18 },
   BNB: { symbol: 'BNB', decimals: 18 },
   AVAX: { symbol: 'AVAX', decimals: 18 },
+  GLMR: { symbol: 'GLMR', decimals: 18 },
+  MOVR: { symbol: 'MOVR', decimals: 18 },
+  DEV: { symbol: 'DEV', decimals: 18 },
 }
 
 export const NETWORK_NATIVE_ASSET: Record<NETWORK, Coin> = {
@@ -31,6 +37,9 @@ export const NETWORK_NATIVE_ASSET: Record<NETWORK, Coin> = {
   [NETWORK.OPTIMISM]: NATIVE_ASSET.ETH,
   [NETWORK.ARBITRUMONE]: NATIVE_ASSET.ETH,
   [NETWORK.AVALANCHE]: NATIVE_ASSET.AVAX,
+  [NETWORK.MOONBEAM]: NATIVE_ASSET.GLMR,
+  [NETWORK.MOONRIVER]: NATIVE_ASSET.MOVR,
+  [NETWORK.MOONBASE]: NATIVE_ASSET.DEV,
 }
 
 export const NETWORK_NAME: Record<NETWORK, string> = {
@@ -42,6 +51,9 @@ export const NETWORK_NAME: Record<NETWORK, string> = {
   [NETWORK.OPTIMISM]: 'Optimism',
   [NETWORK.ARBITRUMONE]: 'Arbitrum One',
   [NETWORK.AVALANCHE]: 'Avalanche',
+  [NETWORK.MOONBEAM]: 'Moonbeam',
+  [NETWORK.MOONRIVER]: 'Moonriver',
+  [NETWORK.MOONBASE]: 'Moonbase',
 }
 
 export const NETWORK_DEFAULT_RPC: Record<NETWORK, string> = {
@@ -53,6 +65,9 @@ export const NETWORK_DEFAULT_RPC: Record<NETWORK, string> = {
   [NETWORK.OPTIMISM]: 'https://mainnet.optimism.io',
   [NETWORK.ARBITRUMONE]: 'https://arb1.arbitrum.io/rpc',
   [NETWORK.AVALANCHE]: 'https://avalanche-c-chain.publicnode.com',
+  [NETWORK.MOONBEAM]: 'https://rpc.api.moonbeam.network',
+  [NETWORK.MOONRIVER]: 'https://rpc.api.moonriver.moonbeam.network',
+  [NETWORK.MOONBASE]: 'https://rpc.api.moonbase.moonbeam.network',
 }
 
 export function getNetworkNativeAsset(network: NETWORK) {
