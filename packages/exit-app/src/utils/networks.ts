@@ -8,6 +8,7 @@ export enum NETWORK {
   ARBITRUMONE = 42161,
   AVALANCHE = 43114,
   LINEA_GOERLI = 59140,
+  LINEA_SEPOLIA = 59141,
   LINEA = 59144
 }
 
@@ -36,6 +37,7 @@ export const NETWORK_NATIVE_ASSET: Record<NETWORK, Coin> = {
   [NETWORK.AVALANCHE]: NATIVE_ASSET.AVAX,
   [NETWORK.LINEA_GOERLI]: NATIVE_ASSET.LINEA_ETH,
   [NETWORK.LINEA]: NATIVE_ASSET.LINEA_ETH,
+  [NETWORK.LINEA_SEPOLIA]: NATIVE_ASSET.LINEA_ETH,
 }
 
 export const NETWORK_NAME: Record<NETWORK, string> = {
@@ -49,6 +51,7 @@ export const NETWORK_NAME: Record<NETWORK, string> = {
   [NETWORK.AVALANCHE]: 'Avalanche',
   [NETWORK.LINEA_GOERLI]: 'Linea Testnet',
   [NETWORK.LINEA]: 'Linea',
+  [NETWORK.LINEA_SEPOLIA]: 'Linea Sepolia',
 }
 
 export const NETWORK_DEFAULT_RPC: Record<NETWORK, string> = {
@@ -62,6 +65,7 @@ export const NETWORK_DEFAULT_RPC: Record<NETWORK, string> = {
   [NETWORK.AVALANCHE]: 'https://avalanche-c-chain.publicnode.com',
   [NETWORK.LINEA_GOERLI]: `https://linea-goerli.infura.io/v3/${process.env.REACT_APP_INFURA_KEY}`,
   [NETWORK.LINEA]: `https://linea-mainnet.infura.io/v3/${process.env.REACT_APP_INFURA_KEY}`,
+  [NETWORK.LINEA_SEPOLIA]: `https://linea-sepolia.infura.io/v3/${process.env.REACT_APP_INFURA_KEY}`,
 }
 
 export function getNetworkNativeAsset(network: NETWORK) {

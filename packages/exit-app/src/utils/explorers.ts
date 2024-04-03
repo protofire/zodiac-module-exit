@@ -106,6 +106,15 @@ export const EXPLORERS_CONFIG: Record<NETWORK, ExplorerData> = {
     verifyContractUrl: "https://lineascan.build/verifyContract",
     explorerApiKey: REACT_APP_LINEASCAN_KEY,
   },
+  [NETWORK.LINEA_SEPOLIA]: {
+    networkExplorerName: "Sepolia Lineascan",
+    networkExplorerUrl: "https://sepolia.lineascan.build/",
+    networkExplorerApiUrl: "https://api-sepolia.lineascan.build/api",
+    safeTransactionApi: "https://transaction-sepolia.safe.linea.build/",
+    safeUrl: "https://safe.linea.build/home?safe=linea-sepolia:",
+    verifyContractUrl: "https://sepolia.lineascan.build/verifyContract",
+    explorerApiKey: REACT_APP_LINEASCAN_KEY,
+  },
 }
 
 export const getNetworkExplorerInfo = (chainId: number) => {
