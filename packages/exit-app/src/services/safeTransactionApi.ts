@@ -1,8 +1,9 @@
 import axios from 'axios'
 import { SafeAssets, TokenAsset } from '../store/main/models'
+import { NETWORK, NETWORK_BASE_API } from '../utils/networks'
 
 export class SafeTransactionApi {
-  private baseUrl = 'https://safe-client.safe.global'
+  private baseUrl
   private chainId: number
   private safe: string
 
@@ -11,6 +12,7 @@ export class SafeTransactionApi {
   constructor(_chainId: number, _safe: string) {
     this.chainId = _chainId
     this.safe = _safe
+    this.baseUrl = NETWORK_BASE_API[_chainId as NETWORK]
   }
 
   static create(_chainId: number, _safe: string) {
