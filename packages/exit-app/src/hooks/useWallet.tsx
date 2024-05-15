@@ -5,14 +5,13 @@ import { resetWallet, setChainId, setENS, setWallet } from '../store/main'
 import { useEffect, useMemo, useState } from 'react'
 import { getChainId } from '../store/main/selectors'
 import SafeAppsSDK from '@gnosis.pm/safe-apps-sdk'
-import { getNetworkRPC } from '../utils/networks'
+import { NETWORK, NETWORK_INFURA_ID, getNetworkRPC } from '../utils/networks'
 import memoize from 'lodash.memoize'
 import { useParams } from 'react-router-dom'
 import { getAddress } from '../utils/address'
 import { ExternalProvider } from '@ethersproject/providers'
 
 const ONBOARD_JS_DAPP_ID = process.env.REACT_APP_ONBOARD_JS_DAPP_ID
-const INFURA_KEY = process.env.REACT_APP_INFURA_KEY
 
 export let _signer: ethers.providers.JsonRpcSigner
 
@@ -29,7 +28,7 @@ const configureOnboardJS = memoize(
       { walletName: 'gnosis', preferred: true },
       { walletName: 'coinbase', preferred: true },
       { walletName: 'ledger', rpcUrl: rpcUrl, preferred: true },
-      { walletName: 'walletConnect', infuraKey: INFURA_KEY, preferred: true },
+      { walletName: 'walletConnect', infuraKey: NETWORK_INFURA_ID[networkId as NETWORK], preferred: true },
       { walletName: 'opera' },
       { walletName: 'operaTouch' },
     ]
