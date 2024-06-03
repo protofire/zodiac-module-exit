@@ -79,9 +79,9 @@ export const NETWORK_BASE_API: Record<NETWORK, string> = {
   [NETWORK.OPTIMISM]: 'https://safe-client.safe.global',
   [NETWORK.ARBITRUMONE]: 'https://safe-client.safe.global',
   [NETWORK.AVALANCHE]: 'https://safe-client.safe.global',
-  [NETWORK.MOONBEAM]: 'https://safe-client.safe.global',
-  [NETWORK.MOONRIVER]: 'https://safe-client.safe.global',
-  [NETWORK.MOONBASE]: 'https://safe-client.safe.global',
+  [NETWORK.MOONBEAM]: 'https://gateway.multisig.moonbeam.network',
+  [NETWORK.MOONRIVER]: 'https://gateway.multisig.moonbeam.network',
+  [NETWORK.MOONBASE]: 'https://gateway.multisig.moonbeam.network',
 }
 
 const INFURA_KEY = process.env.REACT_APP_INFURA_KEY
