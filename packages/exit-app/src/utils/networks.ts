@@ -10,6 +10,9 @@ export enum NETWORK {
   MOONBEAM = 1284,
   MOONRIVER = 1285,
   MOONBASE = 1287,
+  LINEA_GOERLI = 59140,
+  LINEA_SEPOLIA = 59141,
+  LINEA = 59144
 }
 
 export interface Coin {
@@ -26,6 +29,7 @@ export const NATIVE_ASSET: Record<string, Coin> = {
   GLMR: { symbol: 'GLMR', decimals: 18 },
   MOVR: { symbol: 'MOVR', decimals: 18 },
   DEV: { symbol: 'DEV', decimals: 18 },
+  LINEA_ETH: { symbol: "ETH", decimals: 18 },
 }
 
 export const NETWORK_NATIVE_ASSET: Record<NETWORK, Coin> = {
@@ -40,6 +44,9 @@ export const NETWORK_NATIVE_ASSET: Record<NETWORK, Coin> = {
   [NETWORK.MOONBEAM]: NATIVE_ASSET.GLMR,
   [NETWORK.MOONRIVER]: NATIVE_ASSET.MOVR,
   [NETWORK.MOONBASE]: NATIVE_ASSET.DEV,
+  [NETWORK.LINEA_GOERLI]: NATIVE_ASSET.LINEA_ETH,
+  [NETWORK.LINEA]: NATIVE_ASSET.LINEA_ETH,
+  [NETWORK.LINEA_SEPOLIA]: NATIVE_ASSET.LINEA_ETH,
 }
 
 export const NETWORK_NAME: Record<NETWORK, string> = {
@@ -54,6 +61,9 @@ export const NETWORK_NAME: Record<NETWORK, string> = {
   [NETWORK.MOONBEAM]: 'Moonbeam',
   [NETWORK.MOONRIVER]: 'Moonriver',
   [NETWORK.MOONBASE]: 'Moonbase',
+  [NETWORK.LINEA_GOERLI]: 'Linea Testnet',
+  [NETWORK.LINEA]: 'Linea',
+  [NETWORK.LINEA_SEPOLIA]: 'Linea Sepolia',
 }
 
 export const NETWORK_DEFAULT_RPC: Record<NETWORK, string> = {
@@ -68,6 +78,9 @@ export const NETWORK_DEFAULT_RPC: Record<NETWORK, string> = {
   [NETWORK.MOONBEAM]: 'https://rpc.api.moonbeam.network',
   [NETWORK.MOONRIVER]: 'https://rpc.api.moonriver.moonbeam.network',
   [NETWORK.MOONBASE]: 'https://rpc.api.moonbase.moonbeam.network',
+  [NETWORK.LINEA_GOERLI]: `https://linea-goerli.infura.io/v3/${process.env.REACT_APP_INFURA_KEY}`,
+  [NETWORK.LINEA]: `https://linea-mainnet.infura.io/v3/${process.env.REACT_APP_INFURA_KEY}`,
+  [NETWORK.LINEA_SEPOLIA]: `https://linea-sepolia.infura.io/v3/${process.env.REACT_APP_INFURA_KEY}`,
 }
 
 export const NETWORK_BASE_API: Record<NETWORK, string> = {
@@ -82,6 +95,9 @@ export const NETWORK_BASE_API: Record<NETWORK, string> = {
   [NETWORK.MOONBEAM]: 'https://gateway.multisig.moonbeam.network',
   [NETWORK.MOONRIVER]: 'https://gateway.multisig.moonbeam.network',
   [NETWORK.MOONBASE]: 'https://gateway.multisig.moonbeam.network',
+  [NETWORK.LINEA_GOERLI]: 'https://gateway.safe.linea.build',
+  [NETWORK.LINEA]: 'https://gateway.safe.linea.build',
+  [NETWORK.LINEA_SEPOLIA]: 'https://gateway.safe.linea.build',
 }
 
 const INFURA_KEY = process.env.REACT_APP_INFURA_KEY
@@ -97,6 +113,9 @@ export const NETWORK_INFURA_ID: Record<NETWORK, string | undefined> = {
   [NETWORK.MOONBEAM]: INFURA_KEY,
   [NETWORK.MOONRIVER]: INFURA_KEY,
   [NETWORK.MOONBASE]: INFURA_KEY,
+  [NETWORK.LINEA_GOERLI]: INFURA_KEY,
+  [NETWORK.LINEA]: INFURA_KEY,
+  [NETWORK.LINEA_SEPOLIA]: INFURA_KEY,
 }
 
 export function getNetworkNativeAsset(network: NETWORK) {

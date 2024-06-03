@@ -111,6 +111,33 @@ export const EXPLORERS_CONFIG: Record<NETWORK, ExplorerData> = {
     safeUrl: 'https://app.safe.global/home?safe=mbase:',
     verifyContractUrl: 'https://moonbase-explorer.netlify.app/verifyContract',
   },
+  [NETWORK.LINEA_GOERLI]: {
+    networkExplorerName: "Goerli Lineascan",
+    networkExplorerUrl: "https://goerli.lineascan.build/",
+    networkExplorerApiUrl: "https://api-testnet.lineascan.build/api",
+    safeTransactionApi: "https://transaction-testnet.safe.linea.build/",
+    safeUrl: "https://safe.linea.build/home?safe=linea-gor:",
+    verifyContractUrl: "https://goerli.lineascan.build/verifyContract",
+    explorerApiKey: process.env.REACT_APP_LINEASCAN_KEY ?? '',
+  },
+  [NETWORK.LINEA]: {
+    networkExplorerName: "Lineascan",
+    networkExplorerUrl: "https://lineascan.build/",
+    networkExplorerApiUrl: "https://api.lineascan.build/api",
+    safeTransactionApi: "https://transaction.safe.linea.build/",
+    safeUrl: "https://safe.linea.build/home?safe=linea:",
+    verifyContractUrl: "https://lineascan.build/verifyContract",
+    explorerApiKey: process.env.REACT_APP_LINEASCAN_KEY ?? '',
+  },
+  [NETWORK.LINEA_SEPOLIA]: {
+    networkExplorerName: "Sepolia Lineascan",
+    networkExplorerUrl: "https://sepolia.lineascan.build/",
+    networkExplorerApiUrl: "https://api-sepolia.lineascan.build/api",
+    safeTransactionApi: "https://transaction-sepolia.safe.linea.build/",
+    safeUrl: "https://safe.linea.build/home?safe=linea-sepolia:",
+    verifyContractUrl: "https://sepolia.lineascan.build/verifyContract",
+    explorerApiKey: process.env.REACT_APP_LINEASCAN_KEY ?? '',
+  },
 }
 
 export const getNetworkExplorerInfo = (chainId: number) => {
