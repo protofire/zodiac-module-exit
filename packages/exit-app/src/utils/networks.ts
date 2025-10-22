@@ -12,7 +12,8 @@ export enum NETWORK {
   MOONBASE = 1287,
   LINEA_GOERLI = 59140,
   LINEA_SEPOLIA = 59141,
-  LINEA = 59144
+  LINEA = 59144,
+  PLASMA_TESTNET = 9746,
 }
 
 export interface Coin {
@@ -30,6 +31,7 @@ export const NATIVE_ASSET: Record<string, Coin> = {
   MOVR: { symbol: 'MOVR', decimals: 18 },
   DEV: { symbol: 'DEV', decimals: 18 },
   LINEA_ETH: { symbol: "ETH", decimals: 18 },
+  XPL: { symbol: "XPL", decimals: 18 },
 }
 
 export const NETWORK_NATIVE_ASSET: Record<NETWORK, Coin> = {
@@ -47,6 +49,7 @@ export const NETWORK_NATIVE_ASSET: Record<NETWORK, Coin> = {
   [NETWORK.LINEA_GOERLI]: NATIVE_ASSET.LINEA_ETH,
   [NETWORK.LINEA]: NATIVE_ASSET.LINEA_ETH,
   [NETWORK.LINEA_SEPOLIA]: NATIVE_ASSET.LINEA_ETH,
+  [NETWORK.PLASMA_TESTNET]: NATIVE_ASSET.XPL,
 }
 
 export const NETWORK_NAME: Record<NETWORK, string> = {
@@ -64,6 +67,7 @@ export const NETWORK_NAME: Record<NETWORK, string> = {
   [NETWORK.LINEA_GOERLI]: 'Linea Testnet',
   [NETWORK.LINEA]: 'Linea',
   [NETWORK.LINEA_SEPOLIA]: 'Linea Sepolia',
+  [NETWORK.PLASMA_TESTNET]: 'Plasma Testnet',
 }
 
 export const NETWORK_DEFAULT_RPC: Record<NETWORK, string> = {
@@ -81,6 +85,7 @@ export const NETWORK_DEFAULT_RPC: Record<NETWORK, string> = {
   [NETWORK.LINEA_GOERLI]: `https://linea-goerli.infura.io/v3/${process.env.REACT_APP_INFURA_KEY}`,
   [NETWORK.LINEA]: `https://linea-mainnet.infura.io/v3/${process.env.REACT_APP_INFURA_KEY}`,
   [NETWORK.LINEA_SEPOLIA]: `https://linea-sepolia.infura.io/v3/${process.env.REACT_APP_INFURA_KEY}`,
+  [NETWORK.PLASMA_TESTNET]: 'https://testnet-rpc.plasma.to',
 }
 
 export const NETWORK_BASE_API: Record<NETWORK, string> = {
@@ -98,6 +103,7 @@ export const NETWORK_BASE_API: Record<NETWORK, string> = {
   [NETWORK.LINEA_GOERLI]: 'https://gateway.safe.linea.build',
   [NETWORK.LINEA]: 'https://gateway.safe.linea.build',
   [NETWORK.LINEA_SEPOLIA]: 'https://gateway.safe.linea.build',
+  [NETWORK.PLASMA_TESTNET]: 'https://transaction-plasma-testnet.stage.safe.protofire.io/',
 }
 
 const INFURA_KEY = process.env.REACT_APP_INFURA_KEY
@@ -116,6 +122,7 @@ export const NETWORK_INFURA_ID: Record<NETWORK, string | undefined> = {
   [NETWORK.LINEA_GOERLI]: INFURA_KEY,
   [NETWORK.LINEA]: INFURA_KEY,
   [NETWORK.LINEA_SEPOLIA]: INFURA_KEY,
+  [NETWORK.PLASMA_TESTNET]: INFURA_KEY,
 }
 
 export function getNetworkNativeAsset(network: NETWORK) {
