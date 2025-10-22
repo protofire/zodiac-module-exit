@@ -103,7 +103,7 @@ export const NETWORK_BASE_API: Record<NETWORK, string> = {
   [NETWORK.LINEA_GOERLI]: 'https://gateway.safe.linea.build',
   [NETWORK.LINEA]: 'https://gateway.safe.linea.build',
   [NETWORK.LINEA_SEPOLIA]: 'https://gateway.safe.linea.build',
-  [NETWORK.PLASMA_TESTNET]: 'https://transaction-plasma-testnet.stage.safe.protofire.io/',
+  [NETWORK.PLASMA_TESTNET]: 'https://gateway.safe.protofire.io',
 }
 
 const INFURA_KEY = process.env.REACT_APP_INFURA_KEY
