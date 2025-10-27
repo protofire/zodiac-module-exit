@@ -13,6 +13,7 @@ export enum NETWORK {
   LINEA_GOERLI = 59140,
   LINEA_SEPOLIA = 59141,
   LINEA = 59144,
+  PLASMA = 9745,
   PLASMA_TESTNET = 9746,
 }
 
@@ -50,6 +51,7 @@ export const NETWORK_NATIVE_ASSET: Record<NETWORK, Coin> = {
   [NETWORK.LINEA]: NATIVE_ASSET.LINEA_ETH,
   [NETWORK.LINEA_SEPOLIA]: NATIVE_ASSET.LINEA_ETH,
   [NETWORK.PLASMA_TESTNET]: NATIVE_ASSET.XPL,
+  [NETWORK.PLASMA]: NATIVE_ASSET.XPL,
 }
 
 export const NETWORK_NAME: Record<NETWORK, string> = {
@@ -68,6 +70,7 @@ export const NETWORK_NAME: Record<NETWORK, string> = {
   [NETWORK.LINEA]: 'Linea',
   [NETWORK.LINEA_SEPOLIA]: 'Linea Sepolia',
   [NETWORK.PLASMA_TESTNET]: 'Plasma Testnet',
+  [NETWORK.PLASMA]: 'Plasma',
 }
 
 export const NETWORK_DEFAULT_RPC: Record<NETWORK, string> = {
@@ -86,6 +89,7 @@ export const NETWORK_DEFAULT_RPC: Record<NETWORK, string> = {
   [NETWORK.LINEA]: `https://linea-mainnet.infura.io/v3/${process.env.REACT_APP_INFURA_KEY}`,
   [NETWORK.LINEA_SEPOLIA]: `https://linea-sepolia.infura.io/v3/${process.env.REACT_APP_INFURA_KEY}`,
   [NETWORK.PLASMA_TESTNET]: 'https://testnet-rpc.plasma.to',
+  [NETWORK.PLASMA]: 'https://rpc.plasma.to',
 }
 
 export const NETWORK_BASE_API: Record<NETWORK, string> = {
@@ -104,6 +108,7 @@ export const NETWORK_BASE_API: Record<NETWORK, string> = {
   [NETWORK.LINEA]: 'https://gateway.safe.linea.build',
   [NETWORK.LINEA_SEPOLIA]: 'https://gateway.safe.linea.build',
   [NETWORK.PLASMA_TESTNET]: 'https://gateway.safe.protofire.io',
+  [NETWORK.PLASMA]: 'https://gateway.safe.protofire.io',
 }
 
 const INFURA_KEY = process.env.REACT_APP_INFURA_KEY
@@ -123,6 +128,7 @@ export const NETWORK_INFURA_ID: Record<NETWORK, string | undefined> = {
   [NETWORK.LINEA]: INFURA_KEY,
   [NETWORK.LINEA_SEPOLIA]: INFURA_KEY,
   [NETWORK.PLASMA_TESTNET]: INFURA_KEY,
+  [NETWORK.PLASMA]: INFURA_KEY,
 }
 
 export function getNetworkNativeAsset(network: NETWORK) {
