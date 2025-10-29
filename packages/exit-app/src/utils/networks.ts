@@ -15,6 +15,8 @@ export enum NETWORK {
   LINEA = 59144,
   PLASMA = 9745,
   PLASMA_TESTNET = 9746,
+  ZETACHAIN_TESTNET = 7001,
+  ZETACHAIN = 7000,
 }
 
 export interface Coin {
@@ -33,6 +35,7 @@ export const NATIVE_ASSET: Record<string, Coin> = {
   DEV: { symbol: 'DEV', decimals: 18 },
   LINEA_ETH: { symbol: "ETH", decimals: 18 },
   XPL: { symbol: "XPL", decimals: 18 },
+  ZETA: { symbol: "ZETA", decimals: 18 },
 }
 
 export const NETWORK_NATIVE_ASSET: Record<NETWORK, Coin> = {
@@ -52,6 +55,8 @@ export const NETWORK_NATIVE_ASSET: Record<NETWORK, Coin> = {
   [NETWORK.LINEA_SEPOLIA]: NATIVE_ASSET.LINEA_ETH,
   [NETWORK.PLASMA_TESTNET]: NATIVE_ASSET.XPL,
   [NETWORK.PLASMA]: NATIVE_ASSET.XPL,
+  [NETWORK.ZETACHAIN_TESTNET]: NATIVE_ASSET.ZETA,
+  [NETWORK.ZETACHAIN]: NATIVE_ASSET.ZETA,
 }
 
 export const NETWORK_NAME: Record<NETWORK, string> = {
@@ -71,6 +76,8 @@ export const NETWORK_NAME: Record<NETWORK, string> = {
   [NETWORK.LINEA_SEPOLIA]: 'Linea Sepolia',
   [NETWORK.PLASMA_TESTNET]: 'Plasma Testnet',
   [NETWORK.PLASMA]: 'Plasma',
+  [NETWORK.ZETACHAIN_TESTNET]: 'ZetaChain Testnet',
+  [NETWORK.ZETACHAIN]: 'ZetaChain',
 }
 
 export const NETWORK_DEFAULT_RPC: Record<NETWORK, string> = {
@@ -90,6 +97,8 @@ export const NETWORK_DEFAULT_RPC: Record<NETWORK, string> = {
   [NETWORK.LINEA_SEPOLIA]: `https://linea-sepolia.infura.io/v3/${process.env.REACT_APP_INFURA_KEY}`,
   [NETWORK.PLASMA_TESTNET]: 'https://testnet-rpc.plasma.to',
   [NETWORK.PLASMA]: 'https://rpc.plasma.to',
+  [NETWORK.ZETACHAIN_TESTNET]: 'https://zetachain-athens-evm.blockpi.network/v1/rpc/public',
+  [NETWORK.ZETACHAIN]: 'https://zetachain-evm.blockpi.network/v1/rpc/public',
 }
 
 export const NETWORK_BASE_API: Record<NETWORK, string> = {
@@ -109,6 +118,8 @@ export const NETWORK_BASE_API: Record<NETWORK, string> = {
   [NETWORK.LINEA_SEPOLIA]: 'https://gateway.safe.linea.build',
   [NETWORK.PLASMA_TESTNET]: 'https://gateway.safe.protofire.io',
   [NETWORK.PLASMA]: 'https://gateway.safe.protofire.io',
+  [NETWORK.ZETACHAIN_TESTNET]: 'https://gateway.safe.zetachain.com',
+  [NETWORK.ZETACHAIN]: 'https://gateway.safe.zetachain.com',
 }
 
 const INFURA_KEY = process.env.REACT_APP_INFURA_KEY
@@ -129,6 +140,8 @@ export const NETWORK_INFURA_ID: Record<NETWORK, string | undefined> = {
   [NETWORK.LINEA_SEPOLIA]: INFURA_KEY,
   [NETWORK.PLASMA_TESTNET]: INFURA_KEY,
   [NETWORK.PLASMA]: INFURA_KEY,
+  [NETWORK.ZETACHAIN_TESTNET]: INFURA_KEY,
+  [NETWORK.ZETACHAIN]: INFURA_KEY,
 }
 
 export function getNetworkNativeAsset(network: NETWORK) {
