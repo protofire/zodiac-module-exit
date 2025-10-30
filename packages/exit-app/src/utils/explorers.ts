@@ -154,6 +154,22 @@ export const EXPLORERS_CONFIG: Record<NETWORK, ExplorerData> = {
     safeUrl: "https://app.safe.protofire.io/plasma:",
     verifyContractUrl: "https://plasmascan.to/verifycontract",
   },
+  [NETWORK.ZETACHAIN_TESTNET]: {
+    networkExplorerName: "Zetascan",
+    networkExplorerUrl: "https://testnet.zetascan.com",
+    networkExplorerApiUrl: "https://testnet.zetascan.com/api",
+    safeTransactionApi: "https://transaction-testnet.safe.zetachain.com/api",
+    safeUrl: "https://safe.zetachain.com/home?safe=zetachain-athens:",
+    verifyContractUrl: "https://testnet.zetascan.com/contract-verification",
+  },
+  [NETWORK.ZETACHAIN]: {
+    networkExplorerName: "Zetascan",
+    networkExplorerUrl: "https://zetascan.com",
+    networkExplorerApiUrl: "https://zetascan.com/api",
+    safeTransactionApi: "https://transaction.safe.zetachain.com/api",
+    safeUrl: "https://safe.zetachain.com/home?safe=zetachain-mainnet:",
+    verifyContractUrl: "https://zetascan.com/contract-verification",
+  },
 }
 
 export const getNetworkExplorerInfo = (chainId: number) => {
