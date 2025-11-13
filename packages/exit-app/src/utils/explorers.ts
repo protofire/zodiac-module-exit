@@ -170,6 +170,22 @@ export const EXPLORERS_CONFIG: Record<NETWORK, ExplorerData> = {
     safeUrl: "https://safe.zetachain.com/home?safe=zetachain-mainnet:",
     verifyContractUrl: "https://zetascan.com/contract-verification",
   },
+  [NETWORK.FLOW_EVM_MAINNET]: {
+    networkExplorerName: "EVM on Flow explorer",
+    networkExplorerUrl: "https://evm.flowscan.io",
+    networkExplorerApiUrl: "https://evm.flowscan.io/api",
+    safeTransactionApi: "https://transaction.safe.flow.com/api",
+    safeUrl: "https://safe.flow.com/flow-mainnet:",
+    verifyContractUrl: "https://evm.flowscan.io/contract-verification",
+  },
+  [NETWORK.FLOW_EVM_TESTNET]: {
+    networkExplorerName: "EVM on Flow (testnet) explorer",
+    networkExplorerUrl: "https://evm-testnet.flowscan.io",
+    networkExplorerApiUrl: "https://evm-testnet.flowscan.io/api",
+    safeTransactionApi: "https://transaction-testnet.safe.flow.com/api",
+    safeUrl: "https://safe.flow.com/flow-testnet:",
+    verifyContractUrl: "https://evm-testnet.flowscan.io/contract-verification",
+  },
 }
 
 export const getNetworkExplorerInfo = (chainId: number) => {
