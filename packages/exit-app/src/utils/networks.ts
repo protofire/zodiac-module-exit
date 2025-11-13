@@ -17,46 +17,8 @@ export enum NETWORK {
   PLASMA_TESTNET = 9746,
   ZETACHAIN_TESTNET = 7001,
   ZETACHAIN = 7000,
-}
-
-export interface Coin {
-  symbol: string
-  decimals: number
-}
-
-export const NATIVE_ASSET: Record<string, Coin> = {
-  ETH: { symbol: 'ETH', decimals: 18 },
-  XDAI: { symbol: 'xDai', decimals: 18 },
-  MATIC: { symbol: 'MATIC', decimals: 18 },
-  BNB: { symbol: 'BNB', decimals: 18 },
-  AVAX: { symbol: 'AVAX', decimals: 18 },
-  GLMR: { symbol: 'GLMR', decimals: 18 },
-  MOVR: { symbol: 'MOVR', decimals: 18 },
-  DEV: { symbol: 'DEV', decimals: 18 },
-  LINEA_ETH: { symbol: "ETH", decimals: 18 },
-  XPL: { symbol: "XPL", decimals: 18 },
-  ZETA: { symbol: "ZETA", decimals: 18 },
-}
-
-export const NETWORK_NATIVE_ASSET: Record<NETWORK, Coin> = {
-  [NETWORK.MAINNET]: NATIVE_ASSET.ETH,
-  [NETWORK.GOERLI]: NATIVE_ASSET.ETH,
-  [NETWORK.BSC]: NATIVE_ASSET.BNB,
-  [NETWORK.XDAI]: NATIVE_ASSET.XDAI,
-  [NETWORK.POLYGON]: NATIVE_ASSET.MATIC,
-  [NETWORK.OPTIMISM]: NATIVE_ASSET.ETH,
-  [NETWORK.ARBITRUMONE]: NATIVE_ASSET.ETH,
-  [NETWORK.AVALANCHE]: NATIVE_ASSET.AVAX,
-  [NETWORK.MOONBEAM]: NATIVE_ASSET.GLMR,
-  [NETWORK.MOONRIVER]: NATIVE_ASSET.MOVR,
-  [NETWORK.MOONBASE]: NATIVE_ASSET.DEV,
-  [NETWORK.LINEA_GOERLI]: NATIVE_ASSET.LINEA_ETH,
-  [NETWORK.LINEA]: NATIVE_ASSET.LINEA_ETH,
-  [NETWORK.LINEA_SEPOLIA]: NATIVE_ASSET.LINEA_ETH,
-  [NETWORK.PLASMA_TESTNET]: NATIVE_ASSET.XPL,
-  [NETWORK.PLASMA]: NATIVE_ASSET.XPL,
-  [NETWORK.ZETACHAIN_TESTNET]: NATIVE_ASSET.ZETA,
-  [NETWORK.ZETACHAIN]: NATIVE_ASSET.ZETA,
+  FLOW_EVM_MAINNET = 747,
+  FLOW_EVM_TESTNET = 545,
 }
 
 export const NETWORK_NAME: Record<NETWORK, string> = {
@@ -78,6 +40,8 @@ export const NETWORK_NAME: Record<NETWORK, string> = {
   [NETWORK.PLASMA]: 'Plasma',
   [NETWORK.ZETACHAIN_TESTNET]: 'ZetaChain Testnet',
   [NETWORK.ZETACHAIN]: 'ZetaChain',
+  [NETWORK.FLOW_EVM_MAINNET]: 'Flow EVM Mainnet',
+  [NETWORK.FLOW_EVM_TESTNET]: 'Flow EVM Testnet',
 }
 
 export const NETWORK_DEFAULT_RPC: Record<NETWORK, string> = {
@@ -99,6 +63,8 @@ export const NETWORK_DEFAULT_RPC: Record<NETWORK, string> = {
   [NETWORK.PLASMA]: 'https://rpc.plasma.to',
   [NETWORK.ZETACHAIN_TESTNET]: 'https://zetachain-athens-evm.blockpi.network/v1/rpc/public',
   [NETWORK.ZETACHAIN]: 'https://zetachain-evm.blockpi.network/v1/rpc/public',
+  [NETWORK.FLOW_EVM_MAINNET]: 'https://mainnet.evm.nodes.onflow.org',
+  [NETWORK.FLOW_EVM_TESTNET]: 'https://testnet.evm.nodes.onflow.org',
 }
 
 export const NETWORK_BASE_API: Record<NETWORK, string> = {
@@ -120,6 +86,8 @@ export const NETWORK_BASE_API: Record<NETWORK, string> = {
   [NETWORK.PLASMA]: 'https://gateway.safe.protofire.io',
   [NETWORK.ZETACHAIN_TESTNET]: 'https://gateway.safe.zetachain.com',
   [NETWORK.ZETACHAIN]: 'https://gateway.safe.zetachain.com',
+  [NETWORK.FLOW_EVM_MAINNET]: 'https://gateway.safe.flow.com',
+  [NETWORK.FLOW_EVM_TESTNET]: 'https://gateway.safe.flow.com',
 }
 
 const INFURA_KEY = process.env.REACT_APP_INFURA_KEY
@@ -142,10 +110,8 @@ export const NETWORK_INFURA_ID: Record<NETWORK, string | undefined> = {
   [NETWORK.PLASMA]: INFURA_KEY,
   [NETWORK.ZETACHAIN_TESTNET]: INFURA_KEY,
   [NETWORK.ZETACHAIN]: INFURA_KEY,
-}
-
-export function getNetworkNativeAsset(network: NETWORK) {
-  return NETWORK_NATIVE_ASSET[network]
+  [NETWORK.FLOW_EVM_MAINNET]: undefined, // network is not supported by Infura
+  [NETWORK.FLOW_EVM_TESTNET]: undefined, // network is not supported by Infura
 }
 
 export function getNetworkRPC(network: NETWORK) {
