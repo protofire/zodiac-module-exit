@@ -1,0 +1,12 @@
+diff --git a/node_modules/@gnosis-guild/zodiac-core/dist/cjs/tooling/deployMastercopy.js b/node_modules/@gnosis-guild/zodiac-core/dist/cjs/tooling/deployMastercopy.js
+index 63d90ad..d6cabfd 100644
+--- a/node_modules/@gnosis-guild/zodiac-core/dist/cjs/tooling/deployMastercopy.js
++++ b/node_modules/@gnosis-guild/zodiac-core/dist/cjs/tooling/deployMastercopy.js
+@@ -80,6 +80,7 @@ async function deployMastercopy({ factory = erc2470Factory_1.address, bytecode,
+         0,
+     ]);
+     const transaction = Object.assign(Object.assign({}, (0, encodeDeploySingleton_1.default)({
++        factory,
+         bytecode,
+         constructorArgs,
+         salt,
