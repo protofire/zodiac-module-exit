@@ -7,7 +7,7 @@ import type { HttpNetworkUserConfig } from "hardhat/types";
 
 // Load environment variables.
 dotenv.config();
-const { INFURA_KEY, MNEMONIC, ETHERSCAN_API_KEY, PK } = process.env;
+const { INFURA_KEY, MNEMONIC, ETHERSCAN_API_KEY, PK, NODE_URL } = process.env;
 
 import "./tasks/deploy-mastercopies";
 import "./tasks/deploy-mastercopy";
@@ -58,6 +58,14 @@ export default {
       ...sharedNetworkConfig,
       url: `https://sepolia.infura.io/v3/${INFURA_KEY}`,
     },
+    ...(NODE_URL
+      ? {
+        custom: {
+          ...sharedNetworkConfig,
+          url: NODE_URL,
+        },
+      }
+      : {}),
   },
   namedAccounts: {
     deployer: 0,

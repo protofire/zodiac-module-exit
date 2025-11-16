@@ -7,6 +7,7 @@
     "test": "hardhat test",
     "extract:mastercopy": "yarn run build && yarn hardhat extract:mastercopy",
     "deploy:mastercopies": "yarn hardhat deploy:mastercopies --network",
+    "deploy:mastercopies:custom": "yarn hardhat deploy:mastercopies --network custom",
     "deploy:mastercopy": "yarn hardhat deploy:mastercopy --network",
     "verify:mastercopies": "yarn hardhat verify:mastercopies --network",
     "verify:mastercopy": "yarn hardhat verify:mastercopy --network",
