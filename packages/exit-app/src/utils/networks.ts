@@ -9,6 +9,37 @@ export enum NETWORK {
   SEPOLIA = 11155111,
 }
 
+export const NETWORK_NAME: Record<NETWORK, string> = {
+  [NETWORK.MAINNET]: 'Mainnet',
+  [NETWORK.SEPOLIA]: 'Sepolia',
+  [NETWORK.BSC]: 'Binance Smart Chain',
+  [NETWORK.XDAI]: 'Gnosis Chain',
+  [NETWORK.POLYGON]: 'Polygon',
+  [NETWORK.OPTIMISM]: 'Optimism',
+  [NETWORK.ARBITRUMONE]: 'Arbitrum One',
+  [NETWORK.AVALANCHE]: 'Avalanche',
+}
+
+export const NETWORK_DEFAULT_RPC: Record<NETWORK, string> = {
+  [NETWORK.MAINNET]: 'https://eth.llamarpc.com',
+  [NETWORK.SEPOLIA]: 'https://ethereum-sepolia-rpc.publicnode.com',
+  [NETWORK.BSC]: 'https://bsc-rpc.publicnode.com', 
+  [NETWORK.XDAI]: 'https://gnosis.publicnode.com', 
+  [NETWORK.POLYGON]: 'https://polygon-rpc.com',
+  [NETWORK.OPTIMISM]: 'https://mainnet.optimism.io',
+  [NETWORK.ARBITRUMONE]: 'https://arb1.arbitrum.io/rpc',
+  [NETWORK.AVALANCHE]: 'https://avalanche.publicnode.com',
+}
+
+export function getNetworkRPC(network: NETWORK) {
+  return NETWORK_DEFAULT_RPC[network]
+}
+
+export function getNetworkName(network: NETWORK) {
+  return NETWORK_NAME[network]
+}
+
+/* comment out unused code
 export interface Coin {
   symbol: string
   decimals: number
@@ -33,36 +64,7 @@ export const NETWORK_NATIVE_ASSET: Record<NETWORK, Coin> = {
   [NETWORK.AVALANCHE]: NATIVE_ASSET.AVAX,
 }
 
-export const NETWORK_NAME: Record<NETWORK, string> = {
-  [NETWORK.MAINNET]: 'Mainnet',
-  [NETWORK.SEPOLIA]: 'Sepolia',
-  [NETWORK.BSC]: 'Binance Smart Chain',
-  [NETWORK.XDAI]: 'Gnosis Chain',
-  [NETWORK.POLYGON]: 'Polygon',
-  [NETWORK.OPTIMISM]: 'Optimism',
-  [NETWORK.ARBITRUMONE]: 'Arbitrum One',
-  [NETWORK.AVALANCHE]: 'Avalanche',
-}
-
-export const NETWORK_DEFAULT_RPC: Record<NETWORK, string> = {
-  [NETWORK.MAINNET]: 'https://eth.llamarpc.com',
-  [NETWORK.SEPOLIA]: 'https://ethereum-sepolia-rpc.publicnode.com',
-  [NETWORK.BSC]: 'https://bsc-rpc.publicnode.com', 
-  [NETWORK.XDAI]: 'https://gnosis.publicnode.com', 
-  [NETWORK.POLYGON]: 'https://polygon-rpc.com',
-  [NETWORK.OPTIMISM]: 'https://mainnet.optimism.io',
-  [NETWORK.ARBITRUMONE]: 'https://arb1.arbitrum.io/rpc',
-  [NETWORK.AVALANCHE]: 'https://avalanche.publicnode.com',
-}
-
 export function getNetworkNativeAsset(network: NETWORK) {
   return NETWORK_NATIVE_ASSET[network]
 }
-
-export function getNetworkRPC(network: NETWORK) {
-  return NETWORK_DEFAULT_RPC[network]
-}
-
-export function getNetworkName(network: NETWORK) {
-  return NETWORK_NAME[network]
-}
+*/
