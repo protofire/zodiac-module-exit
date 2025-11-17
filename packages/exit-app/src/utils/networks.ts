@@ -7,6 +7,17 @@ export enum NETWORK {
   ARBITRUMONE = 42161,
   AVALANCHE = 43114,
   SEPOLIA = 11155111,
+  MOONBEAM = 1284,
+  MOONRIVER = 1285,
+  MOONBASE = 1287,
+  LINEA = 59144,
+  LINEA_SEPOLIA = 59141,
+  PLASMA = 9745,
+  PLASMA_TESTNET = 9746,
+  ZETACHAIN = 7000,
+  ZETACHAIN_TESTNET = 7001,
+  FLOW_EVM_MAINNET = 747,
+  FLOW_EVM_TESTNET = 545,
 }
 
 export const NETWORK_NAME: Record<NETWORK, string> = {
@@ -18,6 +29,17 @@ export const NETWORK_NAME: Record<NETWORK, string> = {
   [NETWORK.OPTIMISM]: 'Optimism',
   [NETWORK.ARBITRUMONE]: 'Arbitrum One',
   [NETWORK.AVALANCHE]: 'Avalanche',
+  [NETWORK.MOONBEAM]: 'Moonbeam',
+  [NETWORK.MOONRIVER]: 'Moonriver',
+  [NETWORK.MOONBASE]: 'Moonbase',
+  [NETWORK.LINEA]: 'Linea',
+  [NETWORK.LINEA_SEPOLIA]: 'Linea Sepolia',
+  [NETWORK.PLASMA]: 'Plasma',
+  [NETWORK.PLASMA_TESTNET]: 'Plasma Testnet',
+  [NETWORK.ZETACHAIN]: 'ZetaChain',
+  [NETWORK.ZETACHAIN_TESTNET]: 'ZetaChain Testnet',
+  [NETWORK.FLOW_EVM_MAINNET]: 'Flow EVM Mainnet',
+  [NETWORK.FLOW_EVM_TESTNET]: 'Flow EVM Testnet',
 }
 
 export const NETWORK_DEFAULT_RPC: Record<NETWORK, string> = {
@@ -29,6 +51,17 @@ export const NETWORK_DEFAULT_RPC: Record<NETWORK, string> = {
   [NETWORK.OPTIMISM]: 'https://mainnet.optimism.io',
   [NETWORK.ARBITRUMONE]: 'https://arb1.arbitrum.io/rpc',
   [NETWORK.AVALANCHE]: 'https://avalanche.publicnode.com',
+  [NETWORK.MOONBEAM]: 'https://rpc.api.moonbeam.network',
+  [NETWORK.MOONRIVER]: 'https://rpc.api.moonriver.moonbeam.network',
+  [NETWORK.MOONBASE]: 'https://rpc.api.moonbase.moonbeam.network',
+  [NETWORK.LINEA]: `https://rpc.linea.build`,
+  [NETWORK.LINEA_SEPOLIA]: `https://rpc.sepolia.linea.build`,
+  [NETWORK.PLASMA]: 'https://rpc.plasma.to',
+  [NETWORK.PLASMA_TESTNET]: 'https://testnet-rpc.plasma.to',
+  [NETWORK.ZETACHAIN]: 'https://zetachain-mainnet.g.allthatnode.com/archive/evm',
+  [NETWORK.ZETACHAIN_TESTNET]: 'https://zetachain-athens.g.allthatnode.com/archive/evm',
+  [NETWORK.FLOW_EVM_MAINNET]: 'https://mainnet.evm.nodes.onflow.org',
+  [NETWORK.FLOW_EVM_TESTNET]: 'https://testnet.evm.nodes.onflow.org',
 }
 
 export function getNetworkRPC(network: NETWORK) {
