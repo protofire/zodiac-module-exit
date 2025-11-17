@@ -5,14 +5,15 @@ const REACT_APP_OPTIMISTIC_ETHERSCAN_KEY = process.env.REACT_APP_OPTIMISTIC_ETHE
 const REACT_APP_ARBISCAN_KEY = process.env.REACT_APP_ARBISCAN_KEY
 const REACT_APP_SNOWTRACE_KEY = process.env.REACT_APP_SNOWTRACE_KEY
 
+// Most of the fields are optional since they are not used in the codebase
 interface ExplorerData {
-  networkExplorerName: string
-  networkExplorerUrl: string
+  networkExplorerName?: string
+  networkExplorerUrl?: string
   networkExplorerApiUrl: string
-  safeTransactionApi: string
-  safeUrl: string
+  safeTransactionApi?: string
+  safeUrl?: string
   explorerApiKey?: string
-  verifyContractUrl: string
+  verifyContractUrl?: string
 }
 
 export const EXPLORERS_CONFIG: Record<NETWORK, ExplorerData> = {
@@ -86,6 +87,44 @@ export const EXPLORERS_CONFIG: Record<NETWORK, ExplorerData> = {
     safeUrl: 'https://app.safe.global/home?safe=avax:',
     verifyContractUrl: 'https://snowtrace.io/verifyContract',
     explorerApiKey: REACT_APP_SNOWTRACE_KEY,
+  },
+  [NETWORK.MOONBEAM]: {
+    networkExplorerApiUrl: 'https://api.etherscan.io/v2/api',
+    explorerApiKey: REACT_APP_ETHERSCAN_KEY,
+  },
+  [NETWORK.MOONRIVER]: {
+    networkExplorerApiUrl: 'https://api.etherscan.io/v2/api',
+    explorerApiKey: REACT_APP_ETHERSCAN_KEY,
+  },
+  [NETWORK.MOONBASE]: {
+    networkExplorerApiUrl: 'https://api.etherscan.io/v2/api',
+    explorerApiKey: REACT_APP_ETHERSCAN_KEY,
+  },
+  [NETWORK.LINEA]: {
+    networkExplorerApiUrl: 'https://api.etherscan.io/v2/api',
+    explorerApiKey: REACT_APP_ETHERSCAN_KEY,
+  },
+  [NETWORK.LINEA_SEPOLIA]: {
+    networkExplorerApiUrl: 'https://api.etherscan.io/v2/api',
+    explorerApiKey: REACT_APP_ETHERSCAN_KEY,
+  },
+  [NETWORK.PLASMA]: {
+    networkExplorerApiUrl: "https://api.routescan.io/v2/network/mainnet/evm/9745/etherscan/api",
+  },
+  [NETWORK.PLASMA_TESTNET]: {
+    networkExplorerApiUrl: "https://api.routescan.io/v2/network/testnet/evm/9746_5/etherscan/api",
+  },
+  [NETWORK.ZETACHAIN]: {
+    networkExplorerApiUrl: "https://zetascan.com/api",
+  },
+  [NETWORK.ZETACHAIN_TESTNET]: {
+    networkExplorerApiUrl: "https://testnet.zetascan.com/api",
+  },
+  [NETWORK.FLOW_EVM_MAINNET]: {
+    networkExplorerApiUrl: "https://evm.flowscan.io/api",
+  },
+  [NETWORK.FLOW_EVM_TESTNET]: {
+    networkExplorerApiUrl: "https://evm-testnet.flowscan.io/api",
   },
 }
 

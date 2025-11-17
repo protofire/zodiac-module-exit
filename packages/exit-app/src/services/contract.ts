@@ -21,6 +21,8 @@ export const fetchContractSourceCode = memoize(
           module: 'contract',
           action: 'getsourcecode',
           address: contractAddress,
+          // adding chainid to the url params for compatibility with Etherscan V2 API
+          chainid: chainId.toString(),
         }
 
         if (apiKey) {
