@@ -18,7 +18,8 @@
     "fmt": "yarn fmt:sol && yarn fmt:ts",
     "fmt:sol": "prettier 'contracts/**/*.sol' -w",
     "fmt:ts": "prettier 'tasks/**/*.ts' 'test/**/*.ts' -w",
-    "prepack": "yarn build"
+    "prepack": "yarn build",
+    "postinstall": "patch-package"
   },
   "repository": {
     "type": "git"
@@ -67,6 +68,7 @@
     "@gnosis.pm/safe-contracts": "1.3.0",
     "@openzeppelin/contracts": "4.9.3",
     "@openzeppelin/contracts-upgradeable": "4.9.3",
-    "ethers": "^6.13.2"
+    "ethers": "^6.13.2",
+    "patch-package": "^8.0.1"
   }
 }
