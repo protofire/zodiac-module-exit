@@ -12,7 +12,7 @@ import { getAddress } from '../utils/address'
 import { ExternalProvider } from '@ethersproject/providers'
 
 const ONBOARD_JS_DAPP_ID = process.env.REACT_APP_ONBOARD_JS_DAPP_ID
-const INFURA_KEY = process.env.REACT_APP_INFURA_KEY
+// const INFURA_KEY = process.env.REACT_APP_INFURA_KEY
 
 export let _signer: ethers.providers.JsonRpcSigner
 
@@ -29,7 +29,7 @@ const configureOnboardJS = memoize(
       { walletName: 'gnosis', preferred: true },
       { walletName: 'coinbase', preferred: true },
       { walletName: 'ledger', rpcUrl: rpcUrl, preferred: true },
-      { walletName: 'walletConnect', infuraKey: INFURA_KEY, preferred: true },
+      // { walletName: 'walletConnect', infuraKey: INFURA_KEY, preferred: true },
       { walletName: 'opera' },
       { walletName: 'operaTouch' },
     ]
