@@ -8,7 +8,7 @@ import { getAccount } from './selectors'
 import { RootState } from '../index'
 import { Erc721__factory } from '../../contracts/types/factories/Erc721__factory'
 import { getTokenImage } from '../../services/erc721'
-import { getNetworkRPC, NETWORK } from '../../utils/networks'
+import { CUSTOM_MULTICALL_ADDRESSES, getNetworkRPC, NETWORK } from '../../utils/networks'
 import { ContractCallContext, ContractCallResults, Multicall } from 'ethereum-multicall'
 
 export const fetchExitModuleData = createAsyncThunk(
@@ -89,7 +89,11 @@ export const getAvailableTokens = createAsyncThunk(
 
     if (BigNumber.from(balance).isZero()) return []
 
-    const multicall = new Multicall({ ethersProvider: provider as any, tryAggregate: true })
+    const multicall = new Multicall({
+      ethersProvider: provider as any,
+      tryAggregate: true,
+      multicallCustomContractAddress: CUSTOM_MULTICALL_ADDRESSES[network as NETWORK],
+    })
     const tokensCallContext: ContractCallContext = {
       contractAddress: token,
       reference: 'Erc721',
