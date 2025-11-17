@@ -64,6 +64,28 @@ export const NETWORK_DEFAULT_RPC: Record<NETWORK, string> = {
   [NETWORK.FLOW_EVM_TESTNET]: 'https://testnet.evm.nodes.onflow.org',
 }
 
+export const NETWORK_CGW_BASE_URI: Record<NETWORK, string> = {
+  [NETWORK.MAINNET]: 'https://safe-client.safe.global',
+  [NETWORK.SEPOLIA]: 'https://safe-client.safe.global',
+  [NETWORK.BSC]: 'https://safe-client.safe.global',
+  [NETWORK.XDAI]: 'https://safe-client.safe.global',
+  [NETWORK.POLYGON]: 'https://safe-client.safe.global',
+  [NETWORK.OPTIMISM]: 'https://safe-client.safe.global',
+  [NETWORK.ARBITRUMONE]: 'https://safe-client.safe.global',
+  [NETWORK.AVALANCHE]: 'https://safe-client.safe.global',
+  [NETWORK.MOONBEAM]: 'https://gateway.multisig.moonbeam.network',
+  [NETWORK.MOONRIVER]: 'https://gateway.multisig.moonbeam.network',
+  [NETWORK.MOONBASE]: 'https://gateway.multisig.moonbeam.network',
+  [NETWORK.LINEA]: `https://gateway.safe.linea.build`,
+  [NETWORK.LINEA_SEPOLIA]: `https://gateway.safe.linea.build`,
+  [NETWORK.PLASMA]: 'https://gateway.safe.protofire.io',
+  [NETWORK.PLASMA_TESTNET]: 'https://gateway.safe.protofire.io',
+  [NETWORK.ZETACHAIN]: 'https://gateway.safe.zetachain.com',
+  [NETWORK.ZETACHAIN_TESTNET]: 'https://gateway.safe.zetachain.com',
+  [NETWORK.FLOW_EVM_MAINNET]: 'https://gateway.safe.flow.com',
+  [NETWORK.FLOW_EVM_TESTNET]: 'https://gateway.safe.flow.com',
+}
+
 export function getNetworkRPC(network: NETWORK) {
   return NETWORK_DEFAULT_RPC[network]
 }
