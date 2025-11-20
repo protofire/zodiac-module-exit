@@ -64,15 +64,7 @@ export const NETWORK_DEFAULT_RPC: Record<NETWORK, string> = {
   [NETWORK.FLOW_EVM_TESTNET]: 'https://testnet.evm.nodes.onflow.org',
 }
 
-export const NETWORK_CGW_BASE_URI: Record<NETWORK, string> = {
-  [NETWORK.MAINNET]: 'https://safe-client.safe.global',
-  [NETWORK.SEPOLIA]: 'https://safe-client.safe.global',
-  [NETWORK.BSC]: 'https://safe-client.safe.global',
-  [NETWORK.XDAI]: 'https://safe-client.safe.global',
-  [NETWORK.POLYGON]: 'https://safe-client.safe.global',
-  [NETWORK.OPTIMISM]: 'https://safe-client.safe.global',
-  [NETWORK.ARBITRUMONE]: 'https://safe-client.safe.global',
-  [NETWORK.AVALANCHE]: 'https://safe-client.safe.global',
+export const NETWORK_CGW_BASE_URI: Partial<Record<NETWORK, string>> = {
   [NETWORK.MOONBEAM]: 'https://gateway.multisig.moonbeam.network',
   [NETWORK.MOONRIVER]: 'https://gateway.multisig.moonbeam.network',
   [NETWORK.MOONBASE]: 'https://gateway.multisig.moonbeam.network',

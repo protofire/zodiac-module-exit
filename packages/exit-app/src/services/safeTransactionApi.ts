@@ -12,7 +12,7 @@ export class SafeTransactionApi {
   constructor(_chainId: number, _safe: string) {
     this.chainId = _chainId
     this.safe = _safe
-    this.baseUrl = NETWORK_CGW_BASE_URI[_chainId as NETWORK]
+    this.baseUrl = NETWORK_CGW_BASE_URI[_chainId as NETWORK] ?? 'https://safe-client.safe.global'
   }
 
   static create(_chainId: number, _safe: string) {
