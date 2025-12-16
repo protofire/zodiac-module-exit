@@ -18,6 +18,7 @@ export enum NETWORK {
   ZETACHAIN_TESTNET = 7001,
   FLOW_EVM_MAINNET = 747,
   FLOW_EVM_TESTNET = 545,
+  BERACHAIN = 80094,
 }
 
 export const NETWORK_NAME: Record<NETWORK, string> = {
@@ -40,6 +41,7 @@ export const NETWORK_NAME: Record<NETWORK, string> = {
   [NETWORK.ZETACHAIN_TESTNET]: 'ZetaChain Testnet',
   [NETWORK.FLOW_EVM_MAINNET]: 'Flow EVM Mainnet',
   [NETWORK.FLOW_EVM_TESTNET]: 'Flow EVM Testnet',
+  [NETWORK.BERACHAIN]: 'Berachain',
 }
 
 export const NETWORK_DEFAULT_RPC: Record<NETWORK, string> = {
@@ -62,6 +64,7 @@ export const NETWORK_DEFAULT_RPC: Record<NETWORK, string> = {
   [NETWORK.ZETACHAIN_TESTNET]: 'https://zetachain-athens.g.allthatnode.com/archive/evm',
   [NETWORK.FLOW_EVM_MAINNET]: 'https://mainnet.evm.nodes.onflow.org',
   [NETWORK.FLOW_EVM_TESTNET]: 'https://testnet.evm.nodes.onflow.org',
+  [NETWORK.BERACHAIN]: 'https://rpc.berachain.com',
 }
 
 export const NETWORK_CGW_BASE_URI: Partial<Record<NETWORK, string>> = {
@@ -76,6 +79,7 @@ export const NETWORK_CGW_BASE_URI: Partial<Record<NETWORK, string>> = {
   [NETWORK.ZETACHAIN_TESTNET]: 'https://gateway.safe.zetachain.com',
   [NETWORK.FLOW_EVM_MAINNET]: 'https://gateway.safe.flow.com',
   [NETWORK.FLOW_EVM_TESTNET]: 'https://gateway.safe.flow.com',
+  [NETWORK.BERACHAIN]: 'https://gateway.safe.berachain.com',
 }
 
 const DEFAULT_MULTICALL_V3_ADDRESS = '0xcA11bde05977b3631167028862bE2a173976CA11'
@@ -88,6 +92,7 @@ export const CUSTOM_MULTICALL_ADDRESSES: Partial<Record<NETWORK, string>> = {
   [NETWORK.ZETACHAIN_TESTNET]: DEFAULT_MULTICALL_V3_ADDRESS,
   [NETWORK.FLOW_EVM_MAINNET]: DEFAULT_MULTICALL_V3_ADDRESS,
   [NETWORK.FLOW_EVM_TESTNET]: DEFAULT_MULTICALL_V3_ADDRESS,
+  [NETWORK.BERACHAIN]: DEFAULT_MULTICALL_V3_ADDRESS,
 }
 
 export function getNetworkRPC(network: NETWORK) {

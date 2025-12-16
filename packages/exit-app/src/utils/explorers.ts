@@ -126,6 +126,10 @@ export const EXPLORERS_CONFIG: Record<NETWORK, ExplorerData> = {
   [NETWORK.FLOW_EVM_TESTNET]: {
     networkExplorerApiUrl: "https://evm-testnet.flowscan.io/api",
   },
+  [NETWORK.BERACHAIN]: {
+    networkExplorerApiUrl: "https://api.etherscan.io/v2/api",
+    explorerApiKey: REACT_APP_ETHERSCAN_KEY,
+  },
 }
 
 export const getNetworkExplorerInfo = (chainId: number) => {
