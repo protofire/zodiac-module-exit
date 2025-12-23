@@ -1,3 +1,5 @@
+const IS_PRODUCTION = process.env.NODE_ENV === 'production'
+
 export enum NETWORK {
   MAINNET = 1,
   OPTIMISM = 10,
@@ -19,6 +21,8 @@ export enum NETWORK {
   FLOW_EVM_MAINNET = 747,
   FLOW_EVM_TESTNET = 545,
   BERACHAIN = 80094,
+  SHAPE = 360,
+  SHAPE_SEPOLIA = 11011,
 }
 
 export const NETWORK_NAME: Record<NETWORK, string> = {
@@ -42,6 +46,8 @@ export const NETWORK_NAME: Record<NETWORK, string> = {
   [NETWORK.FLOW_EVM_MAINNET]: 'Flow EVM Mainnet',
   [NETWORK.FLOW_EVM_TESTNET]: 'Flow EVM Testnet',
   [NETWORK.BERACHAIN]: 'Berachain',
+  [NETWORK.SHAPE]: 'Shape',
+  [NETWORK.SHAPE_SEPOLIA]: 'Shape Sepolia Testnet',
 }
 
 export const NETWORK_DEFAULT_RPC: Record<NETWORK, string> = {
@@ -65,6 +71,8 @@ export const NETWORK_DEFAULT_RPC: Record<NETWORK, string> = {
   [NETWORK.FLOW_EVM_MAINNET]: 'https://mainnet.evm.nodes.onflow.org',
   [NETWORK.FLOW_EVM_TESTNET]: 'https://testnet.evm.nodes.onflow.org',
   [NETWORK.BERACHAIN]: 'https://rpc.berachain.com',
+  [NETWORK.SHAPE]: 'https://mainnet.shape.network',
+  [NETWORK.SHAPE_SEPOLIA]: 'https://sepolia.shape.network',
 }
 
 export const NETWORK_CGW_BASE_URI: Partial<Record<NETWORK, string>> = {
@@ -80,6 +88,12 @@ export const NETWORK_CGW_BASE_URI: Partial<Record<NETWORK, string>> = {
   [NETWORK.FLOW_EVM_MAINNET]: 'https://gateway.safe.flow.com',
   [NETWORK.FLOW_EVM_TESTNET]: 'https://gateway.safe.flow.com',
   [NETWORK.BERACHAIN]: 'https://gateway.safe.berachain.com',
+  [NETWORK.SHAPE]: IS_PRODUCTION
+    ? 'https://gateway.safe.shape.network'
+    : 'https://gateway.staging.safe.shape.network/',
+  [NETWORK.SHAPE_SEPOLIA]: IS_PRODUCTION
+    ? 'https://gateway.safe.shape.network'
+    : 'https://gateway.staging.safe.shape.network/',
 }
 
 const DEFAULT_MULTICALL_V3_ADDRESS = '0xcA11bde05977b3631167028862bE2a173976CA11'
@@ -93,6 +107,8 @@ export const CUSTOM_MULTICALL_ADDRESSES: Partial<Record<NETWORK, string>> = {
   [NETWORK.FLOW_EVM_MAINNET]: DEFAULT_MULTICALL_V3_ADDRESS,
   [NETWORK.FLOW_EVM_TESTNET]: DEFAULT_MULTICALL_V3_ADDRESS,
   [NETWORK.BERACHAIN]: DEFAULT_MULTICALL_V3_ADDRESS,
+  [NETWORK.SHAPE]: DEFAULT_MULTICALL_V3_ADDRESS,
+  [NETWORK.SHAPE_SEPOLIA]: DEFAULT_MULTICALL_V3_ADDRESS,
 }
 
 export function getNetworkRPC(network: NETWORK) {
