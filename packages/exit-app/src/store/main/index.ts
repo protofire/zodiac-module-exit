@@ -2,13 +2,14 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { EXIT_STEP, MainState, Token } from './models'
 import { fetchExitModuleData, fetchTokenAssets, getAvailableTokens, getGasEstimationsForAssets } from './actions'
 import { BigNumber, ethers } from 'ethers'
-import { getNetworkName, NETWORK } from '../../utils/networks'
+import { NETWORK } from '../../utils/networks'
 
 const ethereum = (window as any).ethereum
 let initialChainId
 try {
   const chainId: BigNumber | undefined = ethereum && ethereum.chainId && ethers.BigNumber.from(ethereum.chainId)
-  if (chainId && getNetworkName(chainId.toNumber())) {
+  // No gate: adopt whatever chain the wallet reports. If the registry carries it, it works.
+  if (chainId) {
     initialChainId = chainId.toNumber()
   }
 } catch (err) {}
