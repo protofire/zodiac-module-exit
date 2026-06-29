@@ -8,7 +8,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "test:chains": "node --test src/chains/*.nodetest.ts",
+    "test:chains": "tsx --test src/chains/*.nodetest.ts",
     "build:types": "typechain --target ethers-v5 --out-dir ./src/contracts/types ./src/contracts/abis/*.json",
     "postinstall": "yarn build:types"
   },
@@ -62,7 +62,8 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "prettier": "2.3.2",
     "typechain": "^5.1.2",
-    "typescript": "~4.3.5"
+    "typescript": "~4.3.5",
+    "tsx": "^4.19.2"
   },
   "eslintConfig": {
     "extends": "react-app"
