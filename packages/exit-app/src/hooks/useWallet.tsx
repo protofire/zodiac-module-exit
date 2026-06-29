@@ -100,7 +100,11 @@ export const useWallet = () => {
   }
 
   useEffect(() => {
+    // RPC now comes from the registry and may be absent for a chain it doesn't carry;
+    // skip building a read provider rather than passing undefined (which silently
+    // defaults to localhost). The injected Safe provider still serves reads/writes.
     const rpcUrl = getNetworkRPC(chainId)
+    if (!rpcUrl) return
     const provider = new ethers.providers.StaticJsonRpcProvider(rpcUrl, chainId)
     setProvider(provider)
   }, [chainId])

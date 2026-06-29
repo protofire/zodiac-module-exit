@@ -7,6 +7,7 @@ import { theme as gnosisStyledComponentsTheme } from '@gnosis.pm/safe-react-comp
 import { App } from './App'
 import { Provider as ReduxProvider } from 'react-redux'
 import { REDUX_STORE } from './store'
+import { initRegistry } from './chains/registry'
 
 const Main = () => {
   return (
@@ -21,9 +22,13 @@ const Main = () => {
   )
 }
 
-ReactDOM.render(
-  <React.StrictMode>
-    <Main />
-  </React.StrictMode>,
-  document.getElementById('root'),
-)
+// Seed chain metadata before first render. initRegistry never throws (falls back to
+// cache/FALLBACK), so render unconditionally via .finally().
+initRegistry().finally(() => {
+  ReactDOM.render(
+    <React.StrictMode>
+      <Main />
+    </React.StrictMode>,
+    document.getElementById('root'),
+  )
+})

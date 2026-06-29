@@ -8,6 +8,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "test:chains": "node --test src/chains/*.nodetest.ts",
     "build:types": "typechain --target ethers-v5 --out-dir ./src/contracts/types ./src/contracts/abis/*.json",
     "postinstall": "yarn build:types"
   },
