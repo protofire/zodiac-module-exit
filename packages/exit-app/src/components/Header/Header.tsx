@@ -9,7 +9,7 @@ import { getAccount, getChainId, getENS, getWalletAddress } from '../../store/ma
 import { EthHashInfo } from '@gnosis.pm/safe-react-components'
 import { shortAddress } from '../../utils/strings'
 import { setChainId } from '../../store/main'
-import { NETWORK_NAME } from '../../utils/networks'
+import { getSupportedNetworks } from '../../utils/networks'
 import { colors } from 'zodiac-ui-components'
 
 const useStyles = makeStyles((theme) => ({
@@ -156,9 +156,9 @@ export const Header = () => {
           value={chainId}
           onChange={(evt) => handleNetworkChange(evt.target.value as string)}
         >
-          {Object.entries(NETWORK_NAME).map((pair) => (
-            <MenuItem key={pair[0]} value={pair[0]}>
-              {pair[1]}
+          {getSupportedNetworks().map((network) => (
+            <MenuItem key={network.chainId} value={network.chainId}>
+              {network.name}
             </MenuItem>
           ))}
         </Select>

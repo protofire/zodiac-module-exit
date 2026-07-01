@@ -81,7 +81,10 @@ export const getAvailableTokens = createAsyncThunk(
     token: string
     network: NETWORK
   }): Promise<AvailableToken[]> => {
+    // RPC is registry-sourced and may be absent; without it we cannot read balances —
+    // return no tokens rather than passing undefined (which defaults to localhost).
     const rpcUrl = getNetworkRPC(network)
+    if (!rpcUrl) return []
     const provider = new ethers.providers.StaticJsonRpcProvider(rpcUrl, network)
 
     const ERC721_contract = Erc721__factory.connect(token, provider as any)

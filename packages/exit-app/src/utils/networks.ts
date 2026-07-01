@@ -1,3 +1,5 @@
+import { getAllRegistryChains, getRegistryChain } from '../chains/registry'
+
 const IS_PRODUCTION = process.env.NODE_ENV === 'production'
 
 export enum NETWORK {
@@ -23,56 +25,6 @@ export enum NETWORK {
   BERACHAIN = 80094,
   SHAPE = 360,
   SHAPE_SEPOLIA = 11011,
-}
-
-export const NETWORK_NAME: Record<NETWORK, string> = {
-  [NETWORK.MAINNET]: 'Mainnet',
-  [NETWORK.SEPOLIA]: 'Sepolia',
-  [NETWORK.BSC]: 'Binance Smart Chain',
-  [NETWORK.XDAI]: 'Gnosis Chain',
-  [NETWORK.POLYGON]: 'Polygon',
-  [NETWORK.OPTIMISM]: 'Optimism',
-  [NETWORK.ARBITRUMONE]: 'Arbitrum One',
-  [NETWORK.AVALANCHE]: 'Avalanche',
-  [NETWORK.MOONBEAM]: 'Moonbeam',
-  [NETWORK.MOONRIVER]: 'Moonriver',
-  [NETWORK.MOONBASE]: 'Moonbase',
-  [NETWORK.LINEA]: 'Linea',
-  [NETWORK.LINEA_SEPOLIA]: 'Linea Sepolia',
-  [NETWORK.PLASMA]: 'Plasma',
-  [NETWORK.PLASMA_TESTNET]: 'Plasma Testnet',
-  [NETWORK.ZETACHAIN]: 'ZetaChain',
-  [NETWORK.ZETACHAIN_TESTNET]: 'ZetaChain Testnet',
-  [NETWORK.FLOW_EVM_MAINNET]: 'Flow EVM Mainnet',
-  [NETWORK.FLOW_EVM_TESTNET]: 'Flow EVM Testnet',
-  [NETWORK.BERACHAIN]: 'Berachain',
-  [NETWORK.SHAPE]: 'Shape',
-  [NETWORK.SHAPE_SEPOLIA]: 'Shape Sepolia Testnet',
-}
-
-export const NETWORK_DEFAULT_RPC: Record<NETWORK, string> = {
-  [NETWORK.MAINNET]: 'https://eth.llamarpc.com',
-  [NETWORK.SEPOLIA]: 'https://ethereum-sepolia-rpc.publicnode.com',
-  [NETWORK.BSC]: 'https://bsc-rpc.publicnode.com', 
-  [NETWORK.XDAI]: 'https://gnosis.publicnode.com', 
-  [NETWORK.POLYGON]: 'https://polygon-rpc.com',
-  [NETWORK.OPTIMISM]: 'https://mainnet.optimism.io',
-  [NETWORK.ARBITRUMONE]: 'https://arb1.arbitrum.io/rpc',
-  [NETWORK.AVALANCHE]: 'https://avalanche.publicnode.com',
-  [NETWORK.MOONBEAM]: 'https://rpc.api.moonbeam.network',
-  [NETWORK.MOONRIVER]: 'https://rpc.api.moonriver.moonbeam.network',
-  [NETWORK.MOONBASE]: 'https://rpc.api.moonbase.moonbeam.network',
-  [NETWORK.LINEA]: `https://rpc.linea.build`,
-  [NETWORK.LINEA_SEPOLIA]: `https://rpc.sepolia.linea.build`,
-  [NETWORK.PLASMA]: 'https://rpc.plasma.to',
-  [NETWORK.PLASMA_TESTNET]: 'https://testnet-rpc.plasma.to',
-  [NETWORK.ZETACHAIN]: 'https://zetachain-mainnet.g.allthatnode.com/archive/evm',
-  [NETWORK.ZETACHAIN_TESTNET]: 'https://zetachain-athens.g.allthatnode.com/archive/evm',
-  [NETWORK.FLOW_EVM_MAINNET]: 'https://mainnet.evm.nodes.onflow.org',
-  [NETWORK.FLOW_EVM_TESTNET]: 'https://testnet.evm.nodes.onflow.org',
-  [NETWORK.BERACHAIN]: 'https://rpc.berachain.com',
-  [NETWORK.SHAPE]: 'https://mainnet.shape.network',
-  [NETWORK.SHAPE_SEPOLIA]: 'https://sepolia.shape.network',
 }
 
 export const NETWORK_CGW_BASE_URI: Partial<Record<NETWORK, string>> = {
@@ -112,11 +64,20 @@ export const CUSTOM_MULTICALL_ADDRESSES: Partial<Record<NETWORK, string>> = {
 }
 
 export function getNetworkRPC(network: NETWORK) {
-  return NETWORK_DEFAULT_RPC[network]
+  return getRegistryChain(network)?.rpc
 }
 
 export function getNetworkName(network: NETWORK) {
-  return NETWORK_NAME[network]
+  return getRegistryChain(network)?.name
+}
+
+/**
+ * The networks to offer in pickers (Header dropdown, AttachAccount). Replaces the
+ * iterated NETWORK_NAME map: sourced from the registry, already gated to the supported
+ * NETWORK enum ids by the registry store.
+ */
+export function getSupportedNetworks(): { chainId: number; name: string }[] {
+  return getAllRegistryChains().map((chain) => ({ chainId: chain.chainId, name: chain.name }))
 }
 
 /* comment out unused code
