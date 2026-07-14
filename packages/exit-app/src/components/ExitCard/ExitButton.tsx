@@ -105,7 +105,7 @@ export const ExitButton = ({ onExit }: ExitButtonProps) => {
     try {
       const checkNetwork = await checkWalletNetwork(network)
       if (!checkNetwork) {
-        const networkName = getNetworkName(network)
+        const networkName = getNetworkName(network) || 'the required network'
         dispatch(setExitStep(EXIT_STEP.ERROR))
         setError('Change current network to ' + networkName)
         return

@@ -12,7 +12,7 @@ import { getAddress } from '../utils/address'
 import { ExternalProvider } from '@ethersproject/providers'
 
 const ONBOARD_JS_DAPP_ID = process.env.REACT_APP_ONBOARD_JS_DAPP_ID
-const INFURA_KEY = process.env.REACT_APP_INFURA_KEY
+// const INFURA_KEY = process.env.REACT_APP_INFURA_KEY
 
 export let _signer: ethers.providers.JsonRpcSigner
 
@@ -29,7 +29,7 @@ const configureOnboardJS = memoize(
       { walletName: 'gnosis', preferred: true },
       { walletName: 'coinbase', preferred: true },
       { walletName: 'ledger', rpcUrl: rpcUrl, preferred: true },
-      { walletName: 'walletConnect', infuraKey: INFURA_KEY, preferred: true },
+      // { walletName: 'walletConnect', infuraKey: INFURA_KEY, preferred: true },
       { walletName: 'opera' },
       { walletName: 'operaTouch' },
     ]
@@ -100,7 +100,11 @@ export const useWallet = () => {
   }
 
   useEffect(() => {
+    // RPC now comes from the registry and may be absent for a chain it doesn't carry;
+    // skip building a read provider rather than passing undefined (which silently
+    // defaults to localhost). The injected Safe provider still serves reads/writes.
     const rpcUrl = getNetworkRPC(chainId)
+    if (!rpcUrl) return
     const provider = new ethers.providers.StaticJsonRpcProvider(rpcUrl, chainId)
     setProvider(provider)
   }, [chainId])

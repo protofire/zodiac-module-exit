@@ -5,9 +5,14 @@ import { fetchContractSourceCode } from './contract'
 import { getSafeModules } from './safe'
 import { Erc20__factory, Erc721__factory, ExitErc20__factory, ExitErc721__factory } from '../contracts/types'
 import { CACHE_TYPE, getCacheHash, readCache, writeCache } from './cache'
+import { CUSTOM_MULTICALL_ADDRESSES, NETWORK } from '../utils/networks'
 
 export async function getExitModule(provider: ethers.providers.BaseProvider, module: string) {
-  const multicall = new Multicall({ ethersProvider: provider as any, tryAggregate: true })
+  const multicall = new Multicall({
+    ethersProvider: provider as any,
+    tryAggregate: true,
+    multicallCustomContractAddress: CUSTOM_MULTICALL_ADDRESSES[provider.network.chainId as NETWORK],
+  })
 
   const callContext: ContractCallContext[] = [
     {
@@ -82,7 +87,11 @@ export async function getERC20Token(provider: ethers.providers.BaseProvider, add
   const cache = await readCache(cacheHash)
   if (cache !== null) return cache as Token
 
-  const multicall = new Multicall({ ethersProvider: provider as any, tryAggregate: true })
+  const multicall = new Multicall({
+    ethersProvider: provider as any,
+    tryAggregate: true,
+    multicallCustomContractAddress: CUSTOM_MULTICALL_ADDRESSES[provider.network.chainId as NETWORK],
+  })
   const callContext: ContractCallContext[] = [
     {
       contractAddress: address,
