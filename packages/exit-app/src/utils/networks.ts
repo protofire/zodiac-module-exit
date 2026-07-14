@@ -25,6 +25,8 @@ export enum NETWORK {
   BERACHAIN = 80094,
   SHAPE = 360,
   SHAPE_SEPOLIA = 11011,
+  SEI = 1329,
+  SEI_TESTNET = 1328,
 }
 
 export const NETWORK_CGW_BASE_URI: Partial<Record<NETWORK, string>> = {
@@ -46,6 +48,12 @@ export const NETWORK_CGW_BASE_URI: Partial<Record<NETWORK, string>> = {
   [NETWORK.SHAPE_SEPOLIA]: IS_PRODUCTION
     ? 'https://gateway.safe.shape.network'
     : 'https://gateway.staging.safe.shape.network/',
+  [NETWORK.SEI]: IS_PRODUCTION
+    ? 'https://gateway.sei-safe.protofire.io'
+    : 'https://gateway.staging.sei-safe.protofire.io',
+  [NETWORK.SEI_TESTNET]: IS_PRODUCTION
+    ? 'https://gateway.sei-safe.protofire.io'
+    : 'https://gateway.staging.sei-safe.protofire.io',
 }
 
 const DEFAULT_MULTICALL_V3_ADDRESS = '0xcA11bde05977b3631167028862bE2a173976CA11'
@@ -61,6 +69,8 @@ export const CUSTOM_MULTICALL_ADDRESSES: Partial<Record<NETWORK, string>> = {
   [NETWORK.BERACHAIN]: DEFAULT_MULTICALL_V3_ADDRESS,
   [NETWORK.SHAPE]: DEFAULT_MULTICALL_V3_ADDRESS,
   [NETWORK.SHAPE_SEPOLIA]: DEFAULT_MULTICALL_V3_ADDRESS,
+  [NETWORK.SEI]: DEFAULT_MULTICALL_V3_ADDRESS,
+  [NETWORK.SEI_TESTNET]: DEFAULT_MULTICALL_V3_ADDRESS,
 }
 
 export function getNetworkRPC(network: NETWORK) {
